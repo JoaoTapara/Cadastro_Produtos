@@ -1,0 +1,38 @@
+creat database projetofinal;
+
+use projetofinal;
+
+create table tb_produto(
+
+id_produto int not null primary key auto_increment,
+nome_produto varchar(45),
+quantidade varchar(45),
+cod_fornecedor int,
+local char(6),
+prateleira char(6),
+
+constraint fk_cod_fornecedor FOREIGN key (cod_fornecedor)
+references tb_fornecedor (id_fornecedor)
+);
+
+create table tb_fornecedor(
+
+id_fornecedor int not null primary key auto_increment,
+nome_fornecedor varchar(45),
+endereco varchar(50),
+cnpj varchar(17),
+quantidade char(4),
+dataEntrega char(24) 
+);
+
+
+create table tb_usuario(
+  id_usuario int not null primary key auto_increment,
+  login varchar(20) not null,
+  senha varchar(5) not null
+);
+
+insert into tb_usuario 
+(login, senha)
+values
+('Adm', '4321');
